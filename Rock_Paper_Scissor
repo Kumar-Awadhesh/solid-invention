@@ -1,0 +1,61 @@
+import random
+
+dic = {
+  "rock": "🪨",
+  "paper": "📄",
+  "scissor": "✂️",
+  "Tie": "⚖️",
+}
+
+choice = input("Do you want to play? (yes/no):")
+
+p1count = 0
+p2count = 0
+Tcount = 0
+
+while choice == "yes":
+  player1 = input("player1 choice: (rock,paper,scissor?):")
+  c_command = ["rock", "paper", "scissor"]
+  player2 = random.choice(c_command)
+  if player1 == "rock" and player2 == "paper":
+    p2count += 1
+    print("player1 choice:", dic[player1])
+    print("player2 choice:", dic[player2])
+    print("")
+    print("palayer2 win:", dic[player2])
+
+  elif player1 == "paper" and player2 == "scissor":
+    p2count += 1
+    print("player1 choice:", dic[player1])
+    print("player2 choice:", dic[player2])
+    print("")
+    print("player2 win:", dic[player2])
+
+  elif player1 == "scissor" and player2 == "rock":
+    p2count += 1
+    print("player1 choice:", dic[player1])
+    print("player2 choice:", dic[player2])
+    print("")
+    print("player2 win:", dic[player2])
+
+  elif player1 == "rock" and player2 == "rock" or player1 == "paper" and player2 == "paper" or player1 == "scissor" and player2 == "scissor":
+    Tcount += 1
+    print("player1 choice:", dic[player1])
+    print("player2 choice:", dic[player2])
+    print("")
+    print("Both choose same so, its a Tie:", dic["Tie"])
+  else:
+    p1count += 1
+    print("player1 choice:", dic[player1])
+    print("player2 choice:", dic[player2])
+    print("")
+    print("player1 win:", dic[player1])
+
+  choice = input("Do you want to play more? (yes/no):")
+
+  if choice == "no":
+    print("player1 win:", " ", p1count, "times")
+
+    print("palyer2 win:", " ", p2count, "times")
+
+    print("Tie:", " ", Tcount, "times")
